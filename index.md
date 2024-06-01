@@ -1,5 +1,5 @@
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="YOUR-DARKMODE-IMAGE">
- <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <source media="(prefers-color-scheme: dark)" srcset="pictures/index/index_home.jpeg">
+ <source media="(prefers-color-scheme: light)" srcset="pictures/index/index_home.jpeg">
+ <img alt="YOUR-ALT-TEXT" src="pictures/index/index_home.jpeg">
 </picture>
