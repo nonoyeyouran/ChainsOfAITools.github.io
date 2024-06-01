@@ -3,4 +3,4 @@
  <source media="(prefers-color-scheme: light)" srcset="pictures/index/index_home.jpeg">
  <img alt="YOUR-ALT-TEXT" src="pictures/index/index_home.jpeg">
 </picture>
-### Open AI tools are here!
+# Open AI tools are here!
