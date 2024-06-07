@@ -5,3 +5,5 @@
  <img alt="YOUR-ALT-TEXT" src="pictures/index/index_home.jpeg">
 </picture>
 
+（1）[OCR+GPT提取图片文字信息](https://nonoyeyouran.github.io/OpenAITools.github.io/pages/ocrTools.html)
+
