@@ -25,7 +25,7 @@
             flex: 1;
         }
         .left {
-            width: 5%; /* 二十分之一宽度 */
+            width: 10%; /* 二十分之一宽度 */
             background-color: #f4f4f4;
             padding: 10px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -92,29 +92,23 @@
         </div>
 
         <!-- 中间内容 -->
-        <div class="middle">
-            <!-- 单点AI工具 -->
-            <section id="single-tools">
-                <h2>单点AI工具</h2>
-                <ul>
-                    <li><a href="#">图像识别工具</a></li>
-                    <li><a href="#">自然语言处理工具</a></li>
-                    <li><a href="#">语音识别工具</a></li>
-                    <li><a href="#">数据标注工具</a></li>
-                </ul>
-            </section>
-
-            <!-- AI工具链 -->
-            <section id="toolchain">
-                <h2>AI工具链</h2>
-                <ul>
-                    <li><a href="#">数据处理工具链</a></li>
-                    <li><a href="#">模型训练工具链</a></li>
-                    <li><a href="#">模型部署工具链</a></li>
-                    <li><a href="#">自动化测试工具链</a></li>
-                </ul>
-            </section>
+        <div class="middle", id="markdown-content">
+           
         </div>
+        <script>
+            // 加载 Markdown 文件
+            fetch('pages/ml_summary.md')
+                .then(response => response.text())
+                .then(markdown => {
+                    // 将 Markdown 转换为 HTML
+                    const html = marked.parse(markdown);
+                    // 将 HTML 插入到页面中
+                    document.getElementById('markdown-content').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('加载失败:', error);
+                });
+        </script>
 
         <!-- 右边空白 -->
         <div class="right">
