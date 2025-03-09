@@ -269,7 +269,9 @@ def main(args):
         best_is_feature_selection = is_feature_selection
         print("腐蚀速率学习-一阶特征：")
         for model_type in model_type_list:
-            params, score, final_selected_feas = trainModel(data_handled, feas_type, model_type=model_type, is_grid_search=grid_search, is_feature_selection=is_feature_selection, selected_feas=[], selected_feas_by_lasso=[], feature_selection_type="None")
+            params, score, final_selected_feas = trainModel(data_handled, feas_type, model_type=model_type,
+                                                            is_grid_search=grid_search, is_feature_selection=is_feature_selection,
+                                                            selected_feas=[], selected_feas_by_lasso=[], feature_selection_type="None")
             if score < best_score:
                 best_params = params
                 best_score = score
@@ -281,7 +283,9 @@ def main(args):
             feas_type = 2
             print("腐蚀速率学习-二阶特征：")
             for model_type in model_type_list:
-                params, score, final_selected_feas = trainModel(data_handled, feas_type, model_type=model_type, is_grid_search=grid_search, is_feature_selection=is_feature_selection, selected_feas=[], selected_feas_by_lasso=[], feature_selection_type="None")
+                params, score, final_selected_feas = trainModel(data_handled, feas_type, model_type=model_type,
+                                                                is_grid_search=grid_search, is_feature_selection=is_feature_selection,
+                                                                selected_feas=[], selected_feas_by_lasso=[], feature_selection_type="None")
                 if score < best_score:
                     best_params = params
                     best_score = score
