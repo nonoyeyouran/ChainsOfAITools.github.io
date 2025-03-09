@@ -114,7 +114,8 @@ def get_model_and_params(model_type, param_grid):
     elif model_type == "XGB":
         model = XGBRegressor(random_state=42)
         if not is_params_grid_empty:
-            model = XGBRegressor(n_estimators=param_grid["n_estimators"], learning_rate=param_grid["learning_rate"], max_depth=param_grid["max_depth"], random_state=42)
+            model = XGBRegressor(n_estimators=param_grid["n_estimators"], learning_rate=param_grid["learning_rate"],
+                                max_depth=param_grid["max_depth"], random_state=42)
         else:
             param_grid = {
                 'n_estimators': np.arange(50, 100, 10),
@@ -124,7 +125,8 @@ def get_model_and_params(model_type, param_grid):
     elif model_type == "RF":
         model = RandomForestRegressor(random_state=42)
         if not is_params_grid_empty:
-            model = RandomForestRegressor(n_estimators=param_grid["n_estimators"], min_samples_split=param_grid["min_samples_split"], max_depth=param_grid["max_depth"], random_state=42)
+            model = RandomForestRegressor(n_estimators=param_grid["n_estimators"], min_samples_split=param_grid["min_samples_split"],
+                                            max_depth=param_grid["max_depth"], random_state=42)
         else:
             param_grid = {
                 'n_estimators': np.arange(50, 100, 10),
@@ -269,9 +271,9 @@ def main(args):
         best_is_feature_selection = is_feature_selection
         print("腐蚀速率学习-一阶特征：")
         for model_type in model_type_list:
-            params, score, final_selected_feas = trainModel(data_handled, feas_type, model_type=model_type,
-                                                            is_grid_search=grid_search, is_feature_selection=is_feature_selection,
-                                                            selected_feas=[], selected_feas_by_lasso=[], feature_selection_type="None")
+            params, score, final_selected_feas = trainModel(data_handled, feas_type, model_type=model_type,  
+                                                            is_grid_search=grid_search, is_feature_selection=is_feature_selection,  
+                                                            selected_feas=[], selected_feas_by_lasso=[], feature_selection_type="None")  
             if score < best_score:
                 best_params = params
                 best_score = score
@@ -283,9 +285,9 @@ def main(args):
             feas_type = 2
             print("腐蚀速率学习-二阶特征：")
             for model_type in model_type_list:
-                params, score, final_selected_feas = trainModel(data_handled, feas_type, model_type=model_type,
-                                                                is_grid_search=grid_search, is_feature_selection=is_feature_selection,
-                                                                selected_feas=[], selected_feas_by_lasso=[], feature_selection_type="None")
+                params, score, final_selected_feas = trainModel(data_handled, feas_type, model_type=model_type,  
+                                                                is_grid_search=grid_search, is_feature_selection=is_feature_selection,  
+                                                                selected_feas=[], selected_feas_by_lasso=[], feature_selection_type="None")  
                 if score < best_score:
                     best_params = params
                     best_score = score
