@@ -93,8 +93,8 @@
     <div class="container">
         <!-- 左边目录 -->
         <div class="left">
-            <div class="nav-item" onclick="fetch('pages/ml_guide.md')">机器学习指南</div>
-            <div class="nav-item" onclick="fetch('pages/classification_or_regression/StructedDataPredict.md')">结构化数据分类和回归</div>
+            <div class="nav-item" onclick="loadMarkdown('pages/ml_guide.md')">机器学习指南</div>
+            <div class="nav-item" onclick="loadMarkdown('pages/classification_or_regression/StructedDataPredict.md')">结构化数据分类和回归</div>
         </div>
 
         <!-- 中间内容 -->
@@ -103,17 +103,23 @@
         </div>
         <script>
             // 加载 Markdown 文件
-            fetch('pages/ml_guide.md')
-                .then(response => response.text())
-                .then(markdown => {
-                    // 将 Markdown 转换为 HTML
-                    const html = marked.parse(markdown);
-                    // 将 HTML 插入到页面中
+            async function loadMarkdown(file) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) {
+                        throw new Error('网络错误，无法加载文件');
+                    }
+                    const text = await response.text();
+                    const html = marked(text); // 将 Markdown 转换为 HTML
                     document.getElementById('markdown-content').innerHTML = html;
-                })
-                .catch(error => {
-                    console.error('加载失败:', error);
-                });
+                } catch (error) {
+                    document.getElementById('markdown-content').innerHTML = `<p>${error.message}</p>`;
+                }
+            }
+
+            window.onload = function() {
+                loadMarkdown('pages/ml_guide.md');
+            };
         </script>
 
         <!-- 右边空白 -->
